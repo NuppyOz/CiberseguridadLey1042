@@ -6,6 +6,7 @@
     <title>LEY N°. 1042 Art. 22</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
@@ -335,25 +336,25 @@
                 <!-- FORMULARIO -->
                 <div class="contacto-form">
 
-                    <form>
+                    <form id="contact-form">
 
                         <div class="input-group">
-                            <input type="text" placeholder="Nombre completo" required>
+                            <input type="text" placeholder="Nombre completo" id="nombre" required>
                         </div>
 
                         <div class="input-group">
-                            <input type="email" placeholder="Correo electrónico" required>
+                            <input type="email" placeholder="Correo electrónico" id="correo" required>
                         </div>
 
                         <div class="input-group">
-                            <input type="text" placeholder="Tipo de ciberdelito">
+                            <input type="text" placeholder="Tipo de ciberdelito" id="tipo">
                         </div>
 
                         <div class="input-group">
-                            <textarea placeholder="Describe lo sucedido..." required></textarea>
+                            <textarea placeholder="Describe lo sucedido..." id="mensaje" required></textarea>
                         </div>
 
-                        <button type="submit">
+                        <button id="submit-btn" type="submit">
                             Enviar reporte
                         </button>
 
@@ -430,7 +431,13 @@
         </div>
 
     </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="script.js"></script>
+
+<script src="app.js"></script>
+
+
 </body>
 </html>

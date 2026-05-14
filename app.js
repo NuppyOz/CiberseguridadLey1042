@@ -1,33 +1,60 @@
-// INICIALIZAR EMAILJS
-emailjs.init("TU_PUBLIC_KEY");
+// ESPERAR A QUE CARGUE EL HTML
+document.addEventListener("DOMContentLoaded", () => {
 
-// FORMULARIO
-const form = document.getElementById("contacto-form");
+    // INICIALIZAR EMAILJS
+    emailjs.init("i4Z0FjQN1VBXf3Ouc");
 
-// EVENTO SUBMIT
-form.addEventListener("submit", function (e) {
+    // OBTENER FORMULARIO
+    const form = document.getElementById("contact-form");
 
-    e.preventDefault();
+    // VALIDAR SI EXISTE
+    if (!form) {
+        console.error("No se encontró el formulario");
+        return;
+    }
 
-    emailjs.sendForm(
-        "TU_SERVICE_ID",
-        "TU_TEMPLATE_ID",
-        this
-    )
+    // EVENTO SUBMIT
+    form.addEventListener("submit", function (e) {
 
-    .then(() => {
+        e.preventDefault();
 
-        alert("Reporte enviado correctamente.");
+        emailjs.send("service_plg9cje", "template_scjygoy", {
 
-        form.reset();
+            nombre: document.getElementById("nombre").value,
 
-    })
+            correo: document.getElementById("correo").value,
 
-    .catch((error) => {
+            tipo: document.getElementById("tipo").value,
 
-        alert("Ocurrió un error al enviar el reporte.");
+            mensaje: document.getElementById("mensaje").value,
 
-        console.log(error);
+        })
+
+        .then(() => {
+
+            Swal.fire({
+                title: "Reporte enviado",
+                text: "Gracias por compartir tu caso.",
+                icon: "success",
+                confirmButtonText: "Aceptar"
+            });
+
+            form.reset();
+
+        })
+
+        .catch((error) => {
+
+            console.error(error);
+
+            Swal.fire({
+                title: "Error",
+                text: "No se pudo enviar el reporte.",
+                icon: "error",
+                confirmButtonText: "Cerrar"
+            });
+
+        });
 
     });
 
