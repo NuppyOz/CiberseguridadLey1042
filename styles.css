@@ -331,7 +331,6 @@ section{
 /* ===== IDENTIDAD ===== */
 
 .identidad-container,
-.estado-container,
 .contacto-container{
     display: flex;
     align-items: center;
@@ -341,7 +340,6 @@ section{
 }
 
 .identidad-content,
-.estado-content,
 .contacto-info,
 .contacto-form{
     flex: 1;
@@ -349,11 +347,106 @@ section{
 }
 
 .identidad-content p,
-.estado-content p,
 .contacto-info p{
     color: var(--gray);
     line-height: 1.9;
     margin-bottom: 20px;
+}
+
+/* =====================================================
+   SECCIÓN ESTADO
+===================================================== */
+
+.estado-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+
+    flex-wrap: nowrap; /* IMPORTANTE */
+}
+
+/* =====================================================
+   CONTENIDO IZQUIERDA
+===================================================== */
+
+.estado-content{
+    flex: 1;
+    max-width: 60%;
+}
+
+/* =====================================================
+   IMAGEN DERECHA
+===================================================== */
+
+.estado-image{
+    flex: 1;
+    max-width: 40%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.estado-image img{
+    width: 100%;
+    max-width: 500px;
+
+    border-radius: 24px;
+
+    object-fit: cover;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.35);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+@media(max-width: 992px){
+
+    .estado-container{
+        gap: 40px;
+    }
+
+    .estado-content{
+        max-width: 55%;
+    }
+
+    .estado-image{
+        max-width: 45%;
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVE CELULAR
+===================================================== */
+
+@media(max-width: 768px){
+
+    .estado-container{
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .estado-content,
+    .estado-image{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .estado-image{
+        justify-content: center;
+    }
+
+    .estado-image img{
+        max-width: 100%;
+    }
+
 }
 
 /* ===== TAGS ===== */
